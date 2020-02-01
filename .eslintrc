@@ -3,7 +3,10 @@
         "ecmaVersion": 9,
         "sourceType": "module"
     },
-    "extends": ["eslint:recommended", "eslint-config-prettier", "plugin:react/recommended"],
+    "extends": ["eslint:recommended", "eslint-config-prettier"],
+    "plugins": [
+        "plugin:react/recommended"
+    ],
     "rules": {
         "no-console": "warn",
         "react/prop-types": "off"

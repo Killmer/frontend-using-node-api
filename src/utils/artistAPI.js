@@ -1,26 +1,32 @@
-export const getArtists = (url) => {
+export const getArtists = (url = 'http://localhost:3012/api/artists') => {
     const params = {
         method: "GET",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
     }
     return fetch(url, params)
         .then((data) => data.json())
 };
 
-export const deleteArtist = (url) => {
+export const deleteArtist = (id) => {
     const params = {
         method: "DELETE",
     }
-    return fetch(url, params)
+    return fetch(`http://localhost:3012/api/artists/${id}`, params)
 };
 
-export const addArtist = (url, artistData) => {
+export const addArtist = (artistData) => {
     const params = {
         method: "POST",
         body: artistData,
     }
-    return fetch(url, params)
+    return fetch('http://localhost:3012/api/artists', params)
+        .then((data) => data.json())
+};
+
+export const updateArtist = (id, artistData) => {
+    const params = {
+        method: "PUT",
+        body: artistData,
+    }
+    return fetch(`http://localhost:3012/api/artists/${id}`, params)
         .then((data) => data.json())
 };
